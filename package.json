@@ -1,0 +1,32 @@
+{
+  "name": "goods-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "start:dev": "nodemon --ignore output/* dist/index",
+    "start:prod": "node dist/index.js",
+    "start": "npm run start:prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-shell-plugin-next": "^2.3.1"
+  },
+  "dependencies": {
+    "@json2csv/plainjs": "^7.0.3",
+    "axios": "^1.5.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.3.1",
+    "install": "^0.13.0",
+    "npm": "^10.1.0"
+  }
+}
