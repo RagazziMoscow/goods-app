@@ -1,6 +1,6 @@
 import { Parser } from '@json2csv/plainjs';
-import * as fs from "fs";
 import * as chalk from "chalk";
+import { outputFile } from "fs-extra";
 
 import Good from "../models/Good";
 import TasksOptions from "../models/TasksOptions";
@@ -14,7 +14,7 @@ export async function exportToFile(data: any, type: FileType): Promise<void> {
                 return new Promise<void>((resolve, reject) => {
                     const json = JSON.stringify(data, null, 2);
 
-                    fs.writeFile("output/output.json", json, {}, (error: any) => {
+                    outputFile("output/output.json", json, {}, (error: any) => {
                         if (error) reject(error);
                         console.log(chalk.bold.yellow("JSON file have been created successfully"));
                         resolve();
@@ -31,7 +31,7 @@ export async function exportToFile(data: any, type: FileType): Promise<void> {
                         const parser = new Parser(opts);
                         const csv = parser.parse(data);
 
-                        fs.writeFile("output/output.csv", csv, {}, (error: any) => {
+                        outputFile("output/output.csv", csv, {}, (error: any) => {
                             if (error) reject(error);
                             console.log(chalk.bold.yellow("CSV file have been created successfully"));
                             resolve();
